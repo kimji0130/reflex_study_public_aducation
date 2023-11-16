@@ -1,2 +1,2 @@
-# study_public_aducation
+# study_public_aducation_231108
 국비교육-웹퍼블리싱 완전정복: 모션 디자인으로 완성하는 반응형 웹디자인(2023.11.08~2024.01.03)
