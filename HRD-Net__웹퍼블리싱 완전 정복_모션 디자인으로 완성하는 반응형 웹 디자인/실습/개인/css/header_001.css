@@ -43,3 +43,29 @@ a {
 .user{
   background:aquamarine; 
 }
+
+
+
+/* ============ 카테고리 바 만들기 ================*/
+#category-bar{
+
+}
+.category-button{
+  color:#71717171;
+  font-size: 12px;
+  font-weight:600;
+  cursor: pointer;
+  background:#fff;
+  border:none;
+}
+.category-button img{
+  width:28px;
+  /* height:24px; */
+  opacity: 0.5;
+}
+.category-button:active, .category-button:hover{
+  color:#000;
+}
+.category-button:active img, .category-button:hover img{
+  opacity: 1;;
+}
