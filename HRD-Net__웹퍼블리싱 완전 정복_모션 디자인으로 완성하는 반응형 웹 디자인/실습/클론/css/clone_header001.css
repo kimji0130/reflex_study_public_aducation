@@ -111,3 +111,16 @@ btn1"어디든지",span,btn2"언제든 일주일"이 선택되는것이다. */
 #profile-section:hover{
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
 }
+/* ============ 카테고리 바 만들기 ================*/
+#category-bar{
+
+}
+.category-button{
+  color:#71717171;
+  font-size: 12px;
+  font-weight:600px;
+}
+.category-button img{
+  width:24px;
+  height:24px;
+}
