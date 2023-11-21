@@ -11,7 +11,8 @@ button{
 }
 header{
   display: flex;
-  padding:0 80px;
+  /* padding:0 80px; */
+  padding:0 40px;
   justify-content: space-between;
   align-items: center;
   height: 80px;
@@ -104,7 +105,7 @@ btn1"어디든지",span,btn2"언제든 일주일"이 선택되는것이다. */
   align-items: center;
   border:1px solid #dddddd;
   /* border-radius: 21px; */
-  border-radius: 40px;;
+  border-radius: 40px;
   /* flex안에 간격들은 gap으로 만들수 있다*/
   gap:12px;
   cursor: pointer;
@@ -115,32 +116,64 @@ btn1"어디든지",span,btn2"언제든 일주일"이 선택되는것이다. */
 /* ============ 카테고리 바 만들기 ================*/
 #category-bar{
 display: flex;
-gap:32px;/*Q. gap이 반영이 안되는듯???*/
-padding:0 40px;
+padding:20px 40px 0;/*위, 좌우, 아래*/
+gap:32px;/*Q. gap이 반영이 안되는듯??? A. id가 아닌 class로 잡혀있어서 그랬음.*/
+overflow: auto;
 }
+/* 기본적으로 overflow속성은 보여지도록 visible이다.*/
+#category-bar::-webkit-scrollbar{
+  display: none;
+/*scroll을 안보이게 */}
+
+.active-img{
+  display:none;
+}
+
 .category-button{
+  /* display:grid; */
   /* margin: 0 16px; */
   color:#717171;
+  height:66px;
+  padding:14px;
   font-size: 12px;
   font-weight:600;
   cursor: pointer;
 }
 /* 비행기 sample은 이미 회색이라서 다른 그림들과 맞추기위해 opacity:1을 줌 */
-.category-button:nth-of-type(1) img{
+/* .category-button:nth-of-type(1) img{
   opacity: 0.8;
 }
 .category-button:nth-of-type(1):active img{
   opacity: 1;
-}
+} */
 
 .category-button img{
   width:28px;/*width:24px;*/
   /* height:28px; */
-  opacity: 0.5;
+  /* opacity: 0.5; */
 }
-.category-button:active, .category-button:hover{
+
+/*.category-button:active,*/ 
+.category-button:hover{
   color:#000;
+  border-bottom:2px solid #ddd;
 }
-.category-button:active img, .category-button:hover img{
+/* .category-button:active img, .category-button:hover img{
   opacity: 1;
+} */
+.category-button:hover .active-img{
+  display: inline-block;
+}
+.category-button:hover .inactive-img{
+  display: none;
+}
+#active-category-button{
+  color:#000;
+  border-bottom: 2px solid #000;
+}
+#active-category-button .active-img{
+  display: inline-block;
+}
+#active-category-button .inactive-img{
+  display: none;
 }
