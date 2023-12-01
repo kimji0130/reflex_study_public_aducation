@@ -114,6 +114,11 @@ btn1"어디든지",span,btn2"언제든 일주일"이 선택되는것이다. */
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.18);
 }
 /* ============ 카테고리 바 만들기 ================*/
+nav{
+  display: contents;
+  top: 80px;
+  height:98px;
+}
 #category-bar{
 display: flex;
 /* padding:20px 40px 0;위, 좌우, 아래 */ padding:10px 40px 0; 
@@ -138,6 +143,7 @@ overflow: auto;
   font-size: 12px;
   font-weight:600;
   cursor: pointer;
+  box-sizing: border-box;
 }
 /* 비행기 sample은 이미 회색이라서 다른 그림들과 맞추기위해 opacity:1을 줌 */
 /* .category-button:nth-of-type(1) img{
@@ -161,6 +167,7 @@ overflow: auto;
 .category-button:hover{
   color:#000;
   border-bottom:2px solid #ddd;
+  box-sizing: border-box;
 }
 #active-category-button:active img,
 #active-category-button:hover img{
@@ -179,7 +186,7 @@ overflow: auto;
   color:#000;
   border-bottom: 2px solid #000;
 }
-button#active-category-button img:nth-child(1n) {
+button#active-category-button img:nth-child(n+1) {
   opacity: 1;
 }
 #active-category-button .active-img{
@@ -189,17 +196,81 @@ button#active-category-button img:nth-child(1n) {
 #active-category-button .inactive-img{
   display: none;
 }
-#grid{
-  display: grid;
-  grid-template-rows: 50px 50px;/* 첫번째 열의 크기값 두번째 열의 크기값 */
-  grid-template-columns: 50px 50px;/* 첫번째 행의 크기값 두번째 행의 크기값 */
-  gap:10px;/* 열간의 간격, 행간의 간격 모두 들어감 row-gap columns-gap*/
+
+.place-image-wrapper{
+  position:relative;
+  width:308px;
+  height:293px;
+  overflow: hidden;
+  border-radius: 23px;
 }
-#grid div{
-  background-color: red;
+.place-image-wrapper img{
+  width:500px;
+  height:500px;
 }
-#grid div:first-child{
-  background-color: yellow;
-  grid-row-start: 1;/* 요소가 #gird{gap:10px}로 간격이 나뉨*/
-  grid-row-end:3;/* 끝이 세번째다.*/
+.place-image-wrapper img.heart-icon{
+  position:absolute;
+  top:16px;
+  right: 16px;
+  width:24px;
+  height:24px;
+  cursor: pointer;
+}
+/* heart icon 누를때 이미지 작아지게 만들기 */
+.heart-icon:active{
+  transform: scale(0.5);
+  transition: tranform 0.25s ease;
+}
+.description-section{
+  margin-top:13px;
+  display: flex;
+  flex-direction: column;/* 텍스트간의 간격을 주고싶으므로 위 아래 flex */
+  font-size:15px;
+  color: rgb(34, 34, 34);
+  gap: 3px;
+}
+.description-section_title{
+  font-weight: 600;
+  
+}
+main{
+  /* text-align: center; */
+  display:flex;
+  justify-content: center;
+  padding:24px 80px;
+}
+
+#place-items-wrapper{
+  display: grid; /* 격자 무늬 배치를 위해 grid 사용하고 308px너비로 4번 반복해라 */
+  grid-template-columns: repeat(4, 308px);
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  gap: 40px 24px;
+}
+#floating-map-button{
+  position:fixed;
+  display: flex;
+  padding:14px 19px;
+  align-items: center;
+  bottom:115px;
+  left:50%;/*부모 요소의 50%*/
+  background-color: #222222;
+  border-radius: 24px;
+  transform: translateX(-50%);/*floating-map-button자신에 대한 50% 중앙정렬*/
+  color:#fff;
+  font-size: 14px;
+  font-weight: 600;
+  gap:8px;
+  cursor: pointer;
+}
+#floating-map-button:hover{
+  box-shadow: transparent, 0 0 0 4px transparent, /*-var 변수*/0 6px 16px rgba(0,0,0,0.12);
+  transform: translateX(-50%) scale(1.04); /*윗부분 transform:translateX(-50%)*/ 
+}
+#floating-map-button span{
+
+}
+#floating-map-button img{
+  width:16px;
 }
