@@ -1,0 +1,46 @@
+body{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width:100vw;
+  height:100vh;
+  overflow: hidden;
+  background-color: #24145E;
+}
+
+/* ★★★★★ image는 한장이지만 개발로서 속성들을 animation으로 제어하는 형식이다. ★★★★★*/
+@keyframes rotation{
+  to{
+    transform: rotateZ(360deg);
+  }
+}
+
+@keyframes shrinkAndGrow{
+  from{
+    transform: scale(0.5);
+  }
+  to{
+    transform:scale(2.0);
+  }
+
+}
+#star_1{
+  animation-name: shrinkAndGrow;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ;
+}
+#planet_2{
+  animation-name: rotation;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  transform-box: fill-box;/*가까운 planet이라는 기준의 요소를 박스로 잡기 때문에 작은 박스안에서 돎*/
+  transform-origin: center;/*변형이 되는 중심이 되는 속성이 중심에 있지 않으므로 center설정을 함*/
+}
+#planet_1{
+  animation-name: rotation;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  transform-box: fill-box;/*가까운 planet이라는 기준의 요소를 박스로 잡기 때문에 작은 박스안에서 돎*/
+  transform-origin: center;/*변형이 되는 중심이 되는 속성이 중심에 있지 않으므로 center설정을 함*/
+}
