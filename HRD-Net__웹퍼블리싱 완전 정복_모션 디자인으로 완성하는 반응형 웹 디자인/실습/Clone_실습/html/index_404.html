@@ -98,4 +98,33 @@
     </g>
   </svg> 
 </body>
+<!-- 애니메이션끼리의 연동을 위해 자바스크립트 사용. event가 에니메이션이 끝나는 것도 리스닝 가능.  -->
+<script>
+  const setZeroAndBeamAppear= () =>{
+    document.getElementById('number-0-soaking').removeEventListener("animationend",setZeroAndBeamAppear)
+
+    document.getElementById('number-0-soaking').setAttribute("id","number-0")
+    document.getElementById('UFO-beam-disappearing').setAttribute("id","UFO-beam")
+
+    //반복해서 사라지면 좋겠다. 반복
+    document.getElementById('number-0').addEventListener("animationend", setZeroAndBeamDisappear)
+  }
+  
+  
+  const setZeroAndBeamDisappear= () =>{
+    document.getElementById('number-0').removeEventListener("animationend",setZeroAndBeamDisappear)
+
+    document.getElementById('number-0').setAttribute("id","number-0-soaking")
+    document.getElementById('UFO-beam').setAttribute("id","UFO-beam-disappearing")
+
+    //빨아드리는거 끝났을떄 다시 시작하면 좋겠다. 반복
+    document.getElementById('number-0-soaking').addEventListener("animationend",setZeroAndBeamAppear)
+  }
+  
+  document.getElementById('number-0').addEventListener("animationend", setZeroAndBeamDisappear)
+
+  // document.getElementById('number-0').addEventListener("animationend", () =>{
+  //    console.log('animation end')
+  // })
+</script>
 </html>
