@@ -1525,9 +1525,47 @@
 </body>
 <script>
     const sun = document.getElementById("sun")
+    
+    const grayClouds = document.getElementById("gray-clouds")
+    const whiteClouds = document.getElementById("white-clouds")
+
+    const bird1 = document.getElementById("bird1")
+    const bird2 = document.getElementById("bird2")
+    const bird3 = document.getElementById("bird3")
+
+    // 숫자가 낮을 수록 멀리 있는 이미지의 산
+    const mountain0 = document.getElementById("mountain0")
+    const mountain1 = document.getElementById("mountain1")
+    const mountain2 = document.getElementById("mountain2")
+    const mountain3 = document.getElementById("mountain3")
+    const mountain4 = document.getElementById("mountain4")
+    const mountain5 = document.getElementById("mountain5")
+    const mountain6 = document.getElementById("mountain6")
+    const mountain7 = document.getElementById("mountain7")
+
 
     window.addEventListener("scroll", () => {
-        sun.style.transform = `translateY(${window.scrollY * 1.05}px)`
+        const scrollY = window.scrollY
+
+        sun.style.transform = `translateY(${scrollY * 1.05}px)`
+        
+        grayClouds.style.transform = `translateX(${scrollY * 0.125 }px)`
+        whiteClouds.style.transform = `translateX(${scrollY * -1.125 }px)`
+        
+        bird1.style.transform = `translateX(${scrollY}px)`
+        bird2.style.transform = `translateX(-${scrollY * 3.5 }px)`
+        bird3.style.transform = `translateX(-${scrollY * 0.5 }px)`
+
+        // 스크롤 속도가 가까울수록 덜움직이는 것 처럼 보이고 이미지로 보면 빨리 움직이는것처럼 보인다.
+        mountain0.style.transform = `translateY(${scrollY * 0.95 }px)`
+        mountain1.style.transform = `translateY(${scrollY * 0.93 }px)`
+        mountain2.style.transform = `translateY(${scrollY * 0.9 }px)`
+        mountain3.style.transform = `translateY(${scrollY * 0.8 }px)`
+        mountain4.style.transform = `translateY(${scrollY * 0.7 }px)`
+        mountain5.style.transform = `translateY(${scrollY * 0.6 }px)`
+        mountain6.style.transform = `translateY(${scrollY * 0.3 }px)`
+        mountain7.style.transform = `translateY(${scrollY * 0.1 }px)`
+
     })
 
     document.querySelectorAll("#right-buttons .button-in-header").forEach((element) => {
